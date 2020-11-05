@@ -16,8 +16,7 @@ end)
 -- List of ctags files to use for autocompletion.
 -- @class table
 -- @name tags
-M.tags = { _USERHOME..'/modules/js/browser.tags', _USERHOME..'/modules/js/ecma.tags',
-  _USERHOME..'/modules/js/jquery.tags' }
+M.tags = { _USERHOME..'/modules/javascript/browser.tags', _USERHOME..'/modules/javascript/ecma.tags',  _USERHOME..'/modules/javascript/jquery.tags' }
 ---
 -- Map of expression patterns to their types.
 -- Expressions are expected to match after the '=' sign of a statement.
@@ -107,7 +106,7 @@ textadept.editing.autocompleters.javascript = function()
 
   local symbol = ''
   local rawsymbol, op, part
-  local matched = M.js_expr:match(line:sub(1, pos))
+  local matched = M.js_expr:match(line:sub(1, pos-1))
   if matched then
     rawsymbol, part = matched.symbol, matched.part
   else
